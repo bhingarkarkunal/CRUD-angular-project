@@ -1,0 +1,56 @@
+<div class="form-body">
+  <div class="row">
+      <div class="form-holder">
+          <div class="form-content">
+              <div class="form-items">
+                  <h3>Register Today</h3>
+                  <p>Fill in the data below.</p>
+                  <form class="requires-validation" id="form" novalidate>
+                    <div class="col-md-12 mt-3">
+                        <input class="form-control" type="text" name="id" [(ngModel)]="employeeData.id"placeholder="ID" required>
+                         <div class="valid-feedback">ID is valid!</div>
+                         <div class="invalid-feedback">ID field cannot be blank!</div>
+                    </div>
+
+                      <div class="col-md-12">
+                         <input class="form-control" type="text" name="name" [(ngModel)]="employeeData.name" placeholder="Full Name" required>
+                         <div class="valid-feedback">Username field is valid!</div>
+                         <div class="invalid-feedback">Username field cannot be blank!</div>
+                      </div>
+
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" name="department" [(ngModel)]="employeeData.department"placeholder="Department" required>
+                           <div class="valid-feedback">department is valid!</div>
+                           <div class="invalid-feedback">department field cannot be blank!</div>
+                      </div>
+
+                      <div class="col-md-12 mt-3">
+                        <input class="form-control" type="number" name="salary" [(ngModel)]="employeeData.salary"placeholder="salary" required>
+                         <div class="valid-feedback">salary is valid!</div>
+                         <div class="invalid-feedback">salary field cannot be blank!</div>
+                    </div>
+
+                    <div class="col-md-12 mt-3">
+                      <input class="form-control" type="number" name="attendancePercentage" [(ngModel)]="employeeData.attendancePercentage"placeholder="attendance" required>
+                       <div class="valid-feedback">attendance percentage is valid!</div>
+                       <div class="invalid-feedback">attendance percentage field cannot be blank!</div>
+                  </div>
+                   
+
+
+                     
+
+
+                     
+
+                  
+
+                      <div class="form-button mt-3">
+                          <button id="submit" type="submit" class="btn btn-primary" (click)="submitEmployee()" >Register</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
