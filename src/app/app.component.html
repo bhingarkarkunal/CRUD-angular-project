@@ -1,56 +1,77 @@
 <div class="form-body">
   <div class="row">
+      <div class="col-6">
+          
       <div class="form-holder">
-          <div class="form-content">
-              <div class="form-items">
-                  <h3>Register Today</h3>
-                  <p>Fill in the data below.</p>
-                  <form class="requires-validation" id="form" novalidate>
-                    <div class="col-md-12 mt-3">
-                        <input class="form-control" type="text" name="id" [(ngModel)]="employeeData.id"placeholder="ID" required>
-                         <div class="valid-feedback">ID is valid!</div>
-                         <div class="invalid-feedback">ID field cannot be blank!</div>
-                    </div>
-
-                      <div class="col-md-12">
-                         <input class="form-control" type="text" name="name" [(ngModel)]="employeeData.name" placeholder="Full Name" required>
-                         <div class="valid-feedback">Username field is valid!</div>
-                         <div class="invalid-feedback">Username field cannot be blank!</div>
-                      </div>
-
-                      <div class="col-md-12">
-                          <input class="form-control" type="text" name="department" [(ngModel)]="employeeData.department"placeholder="Department" required>
-                           <div class="valid-feedback">department is valid!</div>
-                           <div class="invalid-feedback">department field cannot be blank!</div>
-                      </div>
-
-                      <div class="col-md-12 mt-3">
-                        <input class="form-control" type="number" name="salary" [(ngModel)]="employeeData.salary"placeholder="salary" required>
-                         <div class="valid-feedback">salary is valid!</div>
-                         <div class="invalid-feedback">salary field cannot be blank!</div>
-                    </div>
-
-                    <div class="col-md-12 mt-3">
-                      <input class="form-control" type="number" name="attendancePercentage" [(ngModel)]="employeeData.attendancePercentage"placeholder="attendance" required>
-                       <div class="valid-feedback">attendance percentage is valid!</div>
-                       <div class="invalid-feedback">attendance percentage field cannot be blank!</div>
+        <div class="form-content">
+            <div class="form-items">
+                <h3>Register Today</h3>
+                <p>Fill in the data below.</p>
+                <form class="requires-validation" id="form" novalidate>
+                  <div class="col-md-12 mt-3">
+                      <input class="form-control" type="text" name="id" [(ngModel)]="employeeData.id"placeholder="ID" required>
+                       <div class="valid-feedback">ID is valid!</div>
+                       <div class="invalid-feedback">ID field cannot be blank!</div>
                   </div>
-                   
 
+                    <div class="col-md-12">
+                       <input class="form-control" type="text" name="name" [(ngModel)]="employeeData.name" placeholder="Full Name" required>
+                       <div class="valid-feedback">Username field is valid!</div>
+                       <div class="invalid-feedback">Username field cannot be blank!</div>
+                    </div>
 
-                     
+                    <div class="col-md-12">
+                        <input class="form-control" type="text" name="department" [(ngModel)]="employeeData.department"placeholder="Department" required>
+                         <div class="valid-feedback">department is valid!</div>
+                         <div class="invalid-feedback">department field cannot be blank!</div>
+                    </div>
 
+                    <div class="col-md-12 mt-3">
+                      <input class="form-control" type="text" name="salary" [(ngModel)]="employeeData.salary"placeholder="salary" required>
+                       <div class="valid-feedback">salary is valid!</div>
+                       <div class="invalid-feedback">salary field cannot be blank!</div>
+                  </div>
 
-                     
+                  <div class="col-md-12 mt-3">
+                    <input class="form-control" type="text" name="attendancePercentage" [(ngModel)]="employeeData.attendancePercentage"placeholder="attendance" required>
+                     <div class="valid-feedback">attendance percentage is valid!</div>
+                     <div class="invalid-feedback">attendance percentage field cannot be blank!</div>
+                </div>
+                  <div class="form-button mt-3">
+                        <button id="submit" *ngIf="flag == true" type="submit" class="btn btn-primary" (click)="submitEmployee()" >Register</button>
+                        <button id="submit" *ngIf="flag == false" type="submit" class="btn btn-primary" (click)="updateEmployee()" >Update</button>
 
-                  
-
-                      <div class="form-button mt-3">
-                          <button id="submit" type="submit" class="btn btn-primary" (click)="submitEmployee()" >Register</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+      </div>
+      <div class="col-6" style="padding-top: 57px;">
+        <table class="table table-dark " style="width: 95%;border: 2px solid white;">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Attendance</th>
+                <th scope="col">Edit </th>
+                <th scope="col">Delete </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of employeeList">
+                <th scope="row">{{emp.id}} </th>
+                <td>{{emp.name}}</td>
+                <td>{{emp.department}}</td>
+                <td>{{emp.salary}} </td>
+                <td>{{emp.attendancePercentage}} </td>
+                <td (click)="gototoEdit(emp.id)">Edit</td>
+                <td (click)="gototoDelete(emp.id)" >Delete</td>
+              </tr>
+            </tbody>
+          </table>
       </div>
   </div>
 </div>

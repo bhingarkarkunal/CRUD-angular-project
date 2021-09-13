@@ -11,6 +11,7 @@ export class AppComponent {
   employeeData:any={};
   data:any={};
   employeeList:any=[];
+  flag:boolean=true;
   constructor(public common: CommanservicesService, ) {
   this.getEmployeeist();
    
@@ -19,10 +20,7 @@ export class AppComponent {
     this.common.getRequest('employees').subscribe(response => {
       this.data = response;
       console.log(this.data);
-      
-      if (200 == response.status) {
-        this.employeeList = this.data.result;
-      }
+        this.employeeList = this.data.Employees;
     });
   }
 
@@ -31,9 +29,33 @@ export class AppComponent {
     
     this.common.postRequest(this.employeeData,'employees').subscribe(response => {
       this.data = response;
+      this.getEmployeeist();
       if (201 == response.status) {
         $('#form')[0].reset();
       }
     });
+  }
+  gototoEdit(empid:any){
+    this.flag = false;
+    this.common.getRequest('employees'+ '/'+empid).subscribe(response => {
+      this.data = response;
+      this.employeeData = this.data;
+    });
+  }
+  gototoDelete(empid:any){
+    this.flag = false;
+    this.common.deleteRequest('employees'+ '/'+empid).subscribe(response => {
+      this.data = response;
+    });
+    this.getEmployeeist();
+  }
+  updateEmployee(){
+    this.common.putRequest(this.employeeData,'employees'+'/'+this.employeeData.id).subscribe(response => {
+      this.data = response;
+        $('#form')[0].reset();
+        this.flag = true;
+    });
+    
+    this.getEmployeeist();
   }
 }
