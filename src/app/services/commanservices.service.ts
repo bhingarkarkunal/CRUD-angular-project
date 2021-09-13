@@ -72,6 +72,9 @@ export class CommanservicesService {
     return this.http.post<any>(this.appConstants.HOME_URL + url, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'timezone': this.timeZone }) });
   }
 
+ /* putRequest(data: any, url: string): Observable<any> {
+    return this.http.put<any>(this.appConstants.HOME_URL + url, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'timezone': this.timeZone }) });
+  }*/
   putRequest(data: any, url: string): Observable<any> {
     return this.http.put<any>(this.appConstants.HOME_URL + url, data, { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'timezone': this.timeZone }) });
   }

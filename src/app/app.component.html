@@ -39,7 +39,7 @@
                 </div>
                   <div class="form-button mt-3">
                         <button id="submit" *ngIf="flag == true" type="submit" class="btn btn-primary" (click)="submitEmployee()" >Register</button>
-                        <button id="submit" *ngIf="flag == false" type="submit" class="btn btn-primary" (click)="updateEmployee()" >Update</button>
+                        <button id="submit" *ngIf="flag == false" type="submit" class="btn btn-primary" (click)="updateEmployee(employeeData.id)" >Update</button>
 
                     </div>
                 </form>

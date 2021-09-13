@@ -49,8 +49,9 @@ export class AppComponent {
     });
     this.getEmployeeist();
   }
-  updateEmployee(){
-    this.common.putRequest(this.employeeData,'employees'+'/'+this.employeeData.id).subscribe(response => {
+  updateEmployee(empid:any){
+    //console.log("this.employeeData.id--->>",empid);
+    this.common.putRequest(this.employeeData,'employees'+'/'+empid).subscribe(response => {
       this.data = response;
         $('#form')[0].reset();
         this.flag = true;
